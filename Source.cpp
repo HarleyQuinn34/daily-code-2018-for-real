@@ -1,26 +1,34 @@
 #include <iostream>
+#include <Windows.h>
 using namespace std;
 
-double vol(int l,  int w, int h);
+bool PixelCollision(int a, int b, int c, int d);
 
-int main(){
-	int l;
-	int w;
-	int h;
-	
-
-cout << "Please enter length." << endl;
-	cin >> l;
-	cout << "Please enter width." << endl;
-	cin >> w;
-	cout << "Please enter height." << endl;
-	cin >> h;
-cout << "your volume is: " << vol( l,  w,  h) << endl;
-system("pause");
+int main() {
+	int x1;
+	int y1;
+	int x2;
+	int y2;
+	while (1) {
+		cout << "Input two (x,y) coordinates." << endl;
+		cin >> x1 >> y1 >> x2 >> y2;
+		if (PixelCollision(x1, y1, x2, y2) == true) {
+			cout << "There was a collision" << endl;
+			Beep(1000, 5);
+		}
+		else {
+			cout << "There wasn't a collision" << endl;
+		}
+		system("pause");
+	}
 }
-double vol(int l, int w, int h) {
-	
-	double vol = l*w*h / 3;
-	
-	return vol;
+
+bool PixelCollision(int a, int b, int c, int d) {
+	if (a == c) {
+		if (b == d) {
+			
+			return true;
+		}
+	}
+	return false;
 }
