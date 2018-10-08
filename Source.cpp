@@ -1,34 +1,85 @@
 #include <iostream>
-#include <Windows.h>
 using namespace std;
 
-bool PixelCollision(int a, int b, int c, int d);
-
+void roomcolor(int g);
+void monster();
 int main() {
-	int x1;
-	int y1;
-	int x2;
-	int y2;
-	while (1) {
-		cout << "Input two (x,y) coordinates." << endl;
-		cin >> x1 >> y1 >> x2 >> y2;
-		if (PixelCollision(x1, y1, x2, y2) == true) {
-			cout << "There was a collision" << endl;
-			Beep(1000, 5);
-		}
-		else {
-			cout << "There wasn't a collision" << endl;
-		}
-		system("pause");
-	}
-}
+	int room = 1;
+	char input;
 
-bool PixelCollision(int a, int b, int c, int d) {
-	if (a == c) {
-		if (b == d) {
+	while (1) {
+		roomcolor(room);
+		switch (room)
+		{
+		case 1:
 			
-			return true;
+			cout << "you are in room one " << endl;
+			cout << "you can go east (e)" << endl;
+			cin >> input;
+			if (input == 'e')
+				room = 2;
+			break;
+		case 2:
+			monster();
+			cout << "you are in room two " << endl;
+			cout << "you can go north (n) or west(w)" << endl;
+			cin >> input;
+			if (input == 'n')
+				room = 3;
+			else if (input == 'w')
+				room = 1;
+			break;
+		case 3:
+			
+			cout << "you are in room three " << endl;
+			cout << "you can go east (e) or south (s)" << endl;
+			cin >> input;
+			if (input == 'e')
+				room = 4;
+			else if (input == 's')
+				room = 2;
+			break;
+		case 4:
+			monster();
+			cout << "you are in room four " << endl;
+			cout << "you can go west (w)" << endl;
+			cin >> input;
+			if (input == 'w')
+				room = 3;
+			break;
 		}
-	}
-	return false;
+
+	}//while
+}//main
+void roomcolor(int g) {
+	if (g == 1)
+		system("Color 5f");
+	if (g == 2)
+		system("Color 2f");
+	if (g == 3)
+		system("Color 4f");
+	if (g == 4)
+		system("Color 1f");
+
+}//def
+void monster() {
+	int number = rand() % 100 + 1;
+	cout << number << endl;
+	if (number <= 10) 
+		cout << "A wild witch spawned in!" << endl;
+	
+	else if (10<number && number <= 30)
+		cout << "A staggering zombie came out of no where!" << endl;
+	
+	else if (30<number && number <= 60)
+		cout << "A mildy adaquete sleleton popped up!" << endl;
+	
+	else if (60<number && number <= 100)
+		cout << "issa spider" << endl;
+	else 
+		cout << "yeet";
+
+
+		
+	
 }
