@@ -3,14 +3,24 @@ using namespace std;
 
 void roomcolor(int g);
 void monster();
+void loot();
 int main() {
+	int xp = 0;
+	int level = 0;
 	int room = 1;
 	char input;
 
 	while (1) {
+		xp += 100;
+		cout <<"Your XP is: "<< xp << " Your level is " <<level<<endl;
+		if (xp >= 500) {
+			loot();
+			xp = 0;
+			level++;
+		}
 		roomcolor(room);
-		switch (room)
-		{
+		switch (room){
+
 		case 1:
 			
 			cout << "you are in room one " << endl;
@@ -64,7 +74,7 @@ void roomcolor(int g) {
 }//def
 void monster() {
 	int number = rand() % 100 + 1;
-	cout << number << endl;
+	//cout << number << endl;
 	if (number <= 10) 
 		cout << "A wild witch spawned in!" << endl;
 	
@@ -78,8 +88,24 @@ void monster() {
 		cout << "issa spider" << endl;
 	else 
 		cout << "yeet";
+}
+void loot() {
+	double number = rand() % 10000 + 1;
+	cout << number << endl;
+	if (number <= 5820)
+		cout << "You Recieved a common!" << endl;
+
+	else if (5820 <number && number <= 8990)
+		cout << "You Recieved a rare!" << endl;
+
+	else if (8990<number && number <= 9745)
+		cout << "Now thats epic!" << endl;
+
+	else if (9745<number && number <= 1000)
+		cout << "Legendary!" << endl;
+	else
+		cout << "yeet";
 
 
-		
-	
+
 }
