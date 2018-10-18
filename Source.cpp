@@ -1,24 +1,16 @@
-#include <iostream>
+#include <iostream >
 using namespace std;
+int main() {
+	int MyArray[12];
+	int Number = 0;
+	for (int j=0; j < 12; j++)
+		cin >> MyArray[j];
+	for (int i=0; i < 12; i++) {
+		if (MyArray[i] > Number) {
+			Number = MyArray[i];
+		}
 
-double vol(int l,  int w, int h);
-
-int main(){
-	int l;
-	int w;
-	int h;
-	cout << "Please enter length." << endl;
-		cin >> l;
-	cout << "Please enter width." << endl;
-		cin >> w;
-	cout << "Please enter height." << endl;
-		cin >> h;
-	cout << "your volume is: " << vol( l,  w,  h) << endl;
-		system("pause");
-}
-double vol(int l, int w, int h) {
-	
-	double vol = l*w*h / 3;
-	
-	return vol;
+	}
+	cout << "The biggest number is " << Number << endl;
+	system("pause");
 }
