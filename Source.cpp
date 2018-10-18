@@ -1,24 +1,20 @@
 #include <iostream>
 using namespace std;
+int main() {
+	int both=0 ;
+	bool arro[8];
+	bool arra[8];
+	cout<<"Enter your first set of 8 numbers"<<endl;
+	for (int j = 0; j < 8; j++)
+		cin >> arro[j];
+	cout << "Enter your second set of 8 numbers" << endl;
+	for (int i = 0; i < 8; i++)
+		cin >> arra[i];
 
-double vol(int l,  int w, int h);
-
-int main(){
-	int l;
-	int w;
-	int h;
-	cout << "Please enter length." << endl;
-		cin >> l;
-	cout << "Please enter width." << endl;
-		cin >> w;
-	cout << "Please enter height." << endl;
-		cin >> h;
-	cout << "your volume is: " << vol( l,  w,  h) << endl;
-		system("pause");
-}
-double vol(int l, int w, int h) {
+	for (int j = 0; j < 8; j++) 
+		if (arro[j] == arra[j])
+			both++;
 	
-	double vol = l*w*h / 3;
-	
-	return vol;
+	cout<<"There are "<<both<<" numbers that are the same."<<endl;
+	system("pause");
 }
