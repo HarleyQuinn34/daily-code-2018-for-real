@@ -1,35 +1,22 @@
+/*Create a 12-slot string array.
+Ask the user to enter their 12 favorite video games. 
+Then, search through the array for "Bubble Bobble". 
+If their game contains it, tell them they're awesome. 
+Otherwise, tell them they should play BUBBLE BOBBLE.
+Isaiah & Treway
+10/30/18*/
 #include <iostream>
+#include <string>
 using namespace std;
-
-
-
+string game[12];
 int main() {
-	//variable declarations
-	int num[10];
-	int temp;
-	//load in 10 numbers from user into the array
-	for (int i = 0; i < 10; i++) {
-		cout << "In order for this to work you will need to give us 10 random numbers." << endl;
-		cin >> num[i];
+cout << "List your 12 favorite games" << endl;
+for (int j = 0; j < 12; j++) {
+	getline(cin, game[j]);//when using strings getline = cin
+	if (game[j].compare("bubble bobble") == 0)//when using strings use .compare for checking a string array
+		cout << "Now thats EPIC." << endl;
+	else
+		cout << "You should play bubble bobble, it is very epic." << endl;
 	}
-
-	//bubble sort!
-	for (int j = 0; j < 10; j++) {
-		for (int i = 0; i < 9; i++) {
-			if (num[i] > num[i + 1]) {
-				temp = num[i + 1];
-				num[i + 1] = num[i];
-				num[i] = temp;
-			}
-		}
-	}
-
-	//print out the final array
-	for (int i = 0; i < 10; i++) {
-		cout << num[i] << "  ";
-	}
-
-
-
 	system("pause");
 }
