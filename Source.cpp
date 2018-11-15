@@ -1,20 +1,31 @@
 #include <iostream>
 #include <fstream>
-#include <string>
-
 using namespace std;
+int num;
+int num2;
+int num3;
+
 int main() {
-	ofstream mifile;
-	string line;
-	ifstream myfile("prob01.in.txt");
-	while (getline(myfile, line)) {
-		for (int i = 0; i < 2; i++) {
-			cout << line << '\n';
-			mifile.open("save1.txt");
-			mifile << line;
-		}
+	//output file
+	ofstream myfile;
+	myfile.open("save1.txt");
+
+	//input file
+	ifstream myfile2;
+	myfile2.open("save.txt");
+
+	myfile2 >> num;
+	//cout << "num is " << num << endl;
+	for (int i = 0; i < num; i++) {
+		cout << "loop " << num;
+		myfile2 >> num2;
+		myfile2 >> num3;
+
+
+		myfile << num2 + num3<<" ";
+		myfile << num2 * num3 << endl;
 	}
-	mifile.close();
 	myfile.close();
+	myfile2.close();
 	system("pause");
 }
